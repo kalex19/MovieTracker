@@ -1,18 +1,13 @@
-import React from 'react'
-import Card from '../Card/Card'
+import React from 'react';
+import Card from '../Card/Card';
 
-const CardContainer = ({fetchResults}) => {
-    console.log(fetchResults)
-    const display = fetchResults.map(movie => {
-        return <Card key={movie.id} title={movie.title}/>
-    }) 
+const CardContainer = props => {
+	const data = props.data;
+	const display = data.map(movie => {
+		return <Card key={movie.id} title={movie.title} image={movie.poster_path} />;
+	});
 
-    return(
-        <main>
-            {display}
-        </main>
-    )
-
-}
+	return <main>{display}</main>;
+};
 
 export default CardContainer;

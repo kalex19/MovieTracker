@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import SignIn from '../SignIn/SignIn';
 import Controls from '../Controls/Controls';
 import CardContainer from '../CardContainer/CardContainer';
@@ -14,7 +14,7 @@ class App extends Component {
 			userName: '',
 			filteredBy: '',
 			popular: [],
-			nowShowing: [],
+			nowPlaying: [],
 			favorites: [],
 			category: '',
 			isLoading: false
@@ -41,8 +41,12 @@ class App extends Component {
 		let display = this.state.isLoading ? (
 			<section>Loading...</section>
 		) : (
-			<CardContainer favorites={this.state.favorites} fetchResults={this.state.popular} />
-			// <Route path='/controls' component={CardContainer} />
+			<Controls
+				// dataNowPlaying={this.state.nowPlaying}
+				signedIn={this.state.signedIn}
+				favorites={this.state.favorites}
+				fetchResults={this.state.popular}
+			/>
 		);
 
 		return (
@@ -51,13 +55,8 @@ class App extends Component {
 					<header>
 						<h1>Movie Tracker</h1>
 						<input type="text" />
-						{/* <NavLink to="/nowShowing" className="nav">Going Out</NavLink>
-						<NavLink to="/popular" className="nav">Staying In</NavLink> */}
-						{/* <SignIn signedIn={this.state.signedIn} /> */}
 					</header>
 				</div>
-				{/* <Route exact path="/" component={Home} /> */}
-				{/* <Route exact path='/controls' component={Controls} /> */}
 				{display}
 			</div>
 		);
