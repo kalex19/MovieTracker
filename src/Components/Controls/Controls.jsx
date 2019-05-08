@@ -5,7 +5,7 @@ import { Route, NavLink } from 'react-router-dom';
 import SignIn from '../SignIn/SignIn';
 
 const Controls = props => {
-	console.log(props.fetchResults);
+
 	return (
 		<section>
 			<div>
@@ -18,8 +18,8 @@ const Controls = props => {
 				<SignIn signedIn={props.signedIn} />
 			</div>
 			<Route exact path="/" component={Home} />
-			{/* <Route exact path="/nowPlaying" component={CardContainer} data={props.dataNowPlaying} /> */}
-			<Route exact path="/popular" component={() => <CardContainer data={props.fetchResults} />} />
+			<Route exact path="/nowPlaying" component={() => <CardContainer data={props.dataNowPlaying} />} />
+			<Route exact path="/popular" component={() => <CardContainer data={props.dataPopular} />} />
 		</section>
 	);
 };

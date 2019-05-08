@@ -1,9 +1,13 @@
-import fetchUrl from './fetchUrl'
+import apiKey from './apiKey'
 
-export const fetchPopular = async (url) => {
-    const response = await fetchUrl(url);
+export const fetchPop = async () => {
+    const url =
+			`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
+    const response = await fetch(url)
     if(!response.ok) {
-        throw Error('Error fetching Popular')
+      throw Error('Fetch Popular went wrong')
     }
-    return await response.json();
-}
+    return await response.json() 
+  }
+
+  export default fetchPop;

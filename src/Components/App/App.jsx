@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import SignIn from '../SignIn/SignIn';
 import Controls from '../Controls/Controls';
-import CardContainer from '../CardContainer/CardContainer';
-// import fetchPop from '..../Util/ApiCalls/fetchPopular';
-// import apiKey from '..../Util/ApiCalls/apiKey';
+import {fetchPop} from '../../Util/ApiCalls/fetchPopular';
+import {fetchNowPlaying} from '../../Util/ApiCalls/fetchNowPlaying'
 
 class App extends Component {
 	constructor() {
@@ -22,30 +20,33 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({ isLoading: true }, this.getPopular());
+		this.setState({ isLoading: true }, this.getPopular(), this.getNowPlaying());
 	}
 
 	getPopular = () => {
-		const url =
-			'https://api.themoviedb.org/3/movie/popular?api_key=da42d29679e8e89c951b0fc945e844d9&language=en-US&page=1';
-		console.log('getPopular', this.state.popular);
-
-		fetch(url)
-			.then(response => response.json())
+		fetchPop()
 			.then(results => results.results)
 			.then(popular => this.setState({ popular, isLoading: false }))
 			.catch(error => console.log(error));
-	};
+	}
+
+	getNowPlaying = () => {
+		fetchNowPlaying()
+			.then(results => results.results)
+			.then(nowPlaying => this.setState({nowPlaying, isLoading: false}))
+			.catch(error => console.log(error))
+	}
+
 
 	render() {
 		let display = this.state.isLoading ? (
 			<section>Loading...</section>
 		) : (
 			<Controls
-				// dataNowPlaying={this.state.nowPlaying}
+				dataNowPlaying={this.state.nowPlaying}
 				signedIn={this.state.signedIn}
 				favorites={this.state.favorites}
-				fetchResults={this.state.popular}
+				dataPopular={this.state.popular}
 			/>
 		);
 
