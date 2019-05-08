@@ -11,7 +11,7 @@ export default class Card extends Component{
         return(
             <article>
                 <h3>{this.props.title}</h3>
-                {/* <img>{this.props.image}</img> */}
+                <img src={this.props.image} alt="movie poster"/>
             </article>
         )
     }
