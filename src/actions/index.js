@@ -1,15 +1,13 @@
-export const getNowPlaying = (nowPlaying, bool) => {
+export const getNowPlaying = (nowPlaying) => {
     return {
         type: "GET_NOW_PLAYING",
-        nowPlaying,
-        isLoading: bool
+        nowPlaying
     }
 }
 
-export const getPopular = (popular, bool) => {
+export const getPopular = (popular) => {
     return {
         type: "GET_POPULAR",
-        popular,
-        isLoading: bool 
+        popular
     }
 }

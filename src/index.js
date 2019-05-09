@@ -1,12 +1,12 @@
 import { BrowserRouter } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {creatStore} from 'redux'
+import {createStore} from 'redux'
 import {rootReducer} from './reducers'
 import {Provider} from 'react-redux'
 import App from './Components/App/App';
 
-const store = creatStore(rootReducer);
+const store = createStore(rootReducer);
 
 const router = (
 	<Provider store={store}>

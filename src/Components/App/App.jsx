@@ -3,6 +3,7 @@ import { Route, NavLink } from 'react-router-dom';
 import Controls from '../Controls/Controls';
 import {fetchPop} from '../../Util/ApiCalls/fetchPopular';
 import {fetchNowPlaying} from '../../Util/ApiCalls/fetchNowPlaying'
+import {connect} from 'react-redux'
 
 class App extends Component {
 	constructor() {
@@ -26,14 +27,14 @@ class App extends Component {
 	getPopular = () => {
 		fetchPop()
 			.then(results => results.results)
-			.then(popular => this.setState({ popular, isLoading: false }))
+			// .then(this.setState({isLoading: false }))
 			.catch(error => console.log(error));
 	}
 
 	getNowPlaying = () => {
 		fetchNowPlaying()
 			.then(results => results.results)
-			.then(nowPlaying => this.setState({nowPlaying, isLoading: false}))
+			// .then(this.setState({isLoading: false}))ç
 			.catch(error => console.log(error))
 	}
 
@@ -64,4 +65,16 @@ class App extends Component {
 	}
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+	popular: state.popular,
+	nowPlaying:state.nowPlaying
+})
+
+const mapDispatchToProps = (dispatch) => ({
+	getNowPlaying: (nowPlaying) => dispatch(nowPlaying),
+	getPopular: (popular) => dispatch(popular)
+})
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
