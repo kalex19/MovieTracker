@@ -6,6 +6,7 @@ export const postUser = async (url, body) => {
             'Content-Type': 'application/json'
         }
     })
+    return response
 }
 
 export default postUser;

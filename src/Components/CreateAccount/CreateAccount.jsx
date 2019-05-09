@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import postUser from '../../Util/ApiCalls/postUser'
 
 class CreateAccount extends Component {
   constructor() {
@@ -17,9 +18,12 @@ class CreateAccount extends Component {
   } 
 
   handleSubmit = (e) => {
+    const url = "http://localhost:3000/api/users/new"
+    const {email, password, name} = this.state
+    const body = {email, password, name}
     e.preventDefault();
     console.log(this.state.name)
-    
+    postUser(url, body)
   }
 
   render() {
