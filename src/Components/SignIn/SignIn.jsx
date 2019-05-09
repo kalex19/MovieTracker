@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
+import postUser from '../../Util/ApiCalls/postUser'
+
 
 
 
@@ -19,19 +21,26 @@ class SignIn extends Component {
     })
   } 
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(this.state.name)
-    
+    const url = "http://localhost:3000/api/users/"
+    const {email, password} = this.state;
+    const body = {email, password}
+    try {
+      const postResponse = await postUser(url, body)
+      await console.log(postResponse)
+    }
+    catch(error) {
+      // create method that will handle error, add classes & error styling etc.
+      console.log(error)
+    }
   }
-
-
 
   render() {
     return (
       <section>
         <div>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <h3>LogIn</h3>
               <label htmlFor="email-existing">Email</label>
                 <input type="email" name="email" placeholder="Email" id="email-existing" onChange={this.handleChange}/>

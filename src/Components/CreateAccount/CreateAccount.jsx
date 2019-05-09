@@ -18,10 +18,10 @@ class CreateAccount extends Component {
   } 
 
   handleSubmit = (e) => {
+    e.preventDefault();
     const url = "http://localhost:3000/api/users/new"
     const {email, password, name} = this.state
     const body = {email, password, name}
-    e.preventDefault();
     console.log(this.state.name)
     postUser(url, body)
   }

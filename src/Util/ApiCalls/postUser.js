@@ -6,7 +6,11 @@ export const postUser = async (url, body) => {
             'Content-Type': 'application/json'
         }
     })
-    return response
+    if (!response.ok) {
+        throw new Error('Failed to Post')
+    } else {
+        return response.json();
+    }
 }
 
 export default postUser;
