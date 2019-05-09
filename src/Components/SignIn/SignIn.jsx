@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 
 
@@ -7,11 +7,25 @@ class SignIn extends Component {
   constructor() {
     super();
     this.state = {
-      userName: '',
+      email: '',
       password: ''
 
     }
   }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]:e.target.value
+    })
+  } 
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state.name)
+    
+  }
+
+
 
   render() {
     return (
@@ -20,9 +34,9 @@ class SignIn extends Component {
           <form>
             <h3>LogIn</h3>
               <label htmlFor="email-existing">Email</label>
-                <input type="email" name="email" placeholder="Email" id="email-existing"/>
+                <input type="email" name="email" placeholder="Email" id="email-existing" onChange={this.handleChange}/>
               <label htmlFor="password-existing">Password</label>
-                <input type="password" name="password" placeholder="Password" id="password-existing"/>
+                <input type="password" name="password" placeholder="Password" id="password-existing" onChange={this.handleChange}/>
               <input type="submit" />
           </form>
         <NavLink  to="/createAccount">Create Account</NavLink>
