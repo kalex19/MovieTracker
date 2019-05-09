@@ -4,6 +4,7 @@ import Controls from '../Controls/Controls';
 import {fetchPop} from '../../Util/ApiCalls/fetchPopular';
 import {fetchNowPlaying} from '../../Util/ApiCalls/fetchNowPlaying'
 import {connect} from 'react-redux'
+import * as actions from '../../actions'
 
 class App extends Component {
 	constructor() {
@@ -12,29 +13,30 @@ class App extends Component {
 			signedIn: false,
 			userName: '',
 			filteredBy: '',
-			popular: [],
-			nowPlaying: [],
 			favorites: [],
 			category: '',
-			isLoading: false
+			isLoading: true
 		};
 	}
 
 	componentDidMount() {
-		this.setState({ isLoading: true }, this.getPopular(), this.getNowPlaying());
+		this.getPopular()
+		this.getNowPlaying()
 	}
 
 	getPopular = () => {
 		fetchPop()
 			.then(results => results.results)
-			// .then(this.setState({isLoading: false }))
+			.then(popular => this.props.getPopular(popular))
+			.then(this.setState({isLoading: false }))
 			.catch(error => console.log(error));
 	}
 
 	getNowPlaying = () => {
 		fetchNowPlaying()
 			.then(results => results.results)
-			// .then(this.setState({isLoading: false}))ç
+			.then(nowPlaying => this.props.getNowPlaying(nowPlaying))
+			.then(this.setState({isLoading: false}))
 			.catch(error => console.log(error))
 	}
 
@@ -44,10 +46,8 @@ class App extends Component {
 			<section>Loading...</section>
 		) : (
 			<Controls
-				dataNowPlaying={this.state.nowPlaying}
 				signedIn={this.state.signedIn}
 				favorites={this.state.favorites}
-				dataPopular={this.state.popular}
 			/>
 		);
 
@@ -71,8 +71,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	getNowPlaying: (nowPlaying) => dispatch(nowPlaying),
-	getPopular: (popular) => dispatch(popular)
+	getNowPlaying: (nowPlaying) => dispatch(actions.getNowPlaying(nowPlaying)),
+	getPopular: (popular) => dispatch(actions.getPopular(popular))
 })
 
 

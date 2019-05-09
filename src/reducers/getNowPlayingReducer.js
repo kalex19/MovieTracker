@@ -1,6 +1,6 @@
 export const getNowPlayingReducer = (state = [], action) => {
     const newState = {
-        popular:action.nowPlaying,
+        nowPlaying:action.nowPlaying,
         isLoading: false
     }
 

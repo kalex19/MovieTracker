@@ -18,8 +18,8 @@ const Controls = props => {
 				<SignIn signedIn={props.signedIn} />
 			</div>
 			<Route exact path="/" component={Home} />
-			<Route exact path="/nowPlaying" component={() => <CardContainer data={props.dataNowPlaying} />} />
-			<Route exact path="/popular" component={() => <CardContainer data={props.dataPopular} />} />
+			<Route exact path="/nowPlaying" component={() => <CardContainer category="nowPlaying"/>} />
+			<Route exact path="/popular" component={() => <CardContainer category="popular"/>} />
 		</section>
 	);
 };
