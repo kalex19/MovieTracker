@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { fetchPop } from '../../Util/ApiCalls/fetchPopular';
+import { fetchNowPlaying } from '../../Util/ApiCalls/fetchNowPlaying';
 
-export default class Card extends Component {
-	constructor() {
-		super();
-		this.state = {};
-	}
+const Card = ({ title, image, id, type }) => {
+	return (
+		<Link to={`${type}/${id} `} key={id}>
+			<h3>{title}</h3>
+			<img src={'http://image.tmdb.org/t/p/w200' + image} alt="movie poster" />
+		</Link>
+	);
+};
 
-	render() {
-		return (
-			<article>
-				<h3>{this.props.title}</h3>
-				<img src={'http://image.tmdb.org/t/p/w200' + this.props.image} alt="movie poster" />
-			</article>
-		);
-	}
-}
+export default Card;

@@ -3,10 +3,12 @@ import Home from '../Home/Home';
 import CardContainer from '../CardContainer/CardContainer';
 import { Route, NavLink } from 'react-router-dom';
 import SignIn from '../SignIn/SignIn';
-import CreateAccount from '../CreateAccount/CreateAccount'
+import CreateAccount from '../CreateAccount/CreateAccount';
+import CardDetails from '../CardDetails/CardDetails';
 
 const Controls = props => {
-
+	// const nowPlaying = props.nowPlaying.nowPlaying;
+	// const popular = props.popular.popular;
 	return (
 		<section>
 			<div>
@@ -16,17 +18,33 @@ const Controls = props => {
 				<NavLink to="/popular" className="nav">
 					Staying In
 				</NavLink>
-				<NavLink to="/signIn">
-				Sign In
-				</NavLink>
+				<NavLink to="/signIn">Sign In</NavLink>
 			</div>
 			<Route exact path="/" component={Home} />
-			<Route exact path="/signIn" component={SignIn}/>
-			<Route exact path="/nowPlaying" component={() => <CardContainer category="nowPlaying"/>} />
-			<Route exact path="/popular" component={() => <CardContainer category="popular"/>} />
-			<Route  exact path="/createAccount" component={CreateAccount}/>
-
-
+			<Route exact path="/signIn" component={SignIn} />
+			<Route exact path="/nowPlaying" component={() => <CardContainer category="nowPlaying" />} />
+			<Route exact path="/popular" component={() => <CardContainer category="popular" />} />
+			<Route exact path="/createAccount" component={CreateAccount} />
+			{/* <Route
+				path="/popluar/:id"
+				render={({ match }) => {
+					const { id } = match.params;
+					const card = popular.find(movie => movie.id === parseInt(id));
+					if (card) {
+						return <CardDetails {...card} />;
+					}
+				}}
+			/>
+			<Route
+				path="/nowPlaying/:id"
+				render={({ match }) => {
+					const { id } = match.params;
+					const card = nowPlaying.find(movie => movie.id === parseInt(id));
+					if (card) {
+						return <CardDetails {...card} />;
+					}
+				}}
+			/> */}
 		</section>
 	);
 };
