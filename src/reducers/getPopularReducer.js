@@ -1,15 +1,12 @@
-
 export const getPopularReducer = (state = [], action) => {
     const newState = {
-        popular:action.popular,
-        isLoading: false
+        popular: action.popular
     }
 
-    switch(action.type) {
+    switch (action.type) {
         case "GET_POPULAR":
-        return newState
-
+            return newState
         default:
-        return state
+            return state
     }
 }

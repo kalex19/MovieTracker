@@ -11,3 +11,10 @@ export const getPopular = (popular) => {
         popular
     }
 }
+
+export const isLoading = (bool) => {
+    return {
+        type: 'IS_LOADNG',
+        isLoading: bool
+    }
+}

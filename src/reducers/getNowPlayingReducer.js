@@ -1,14 +1,13 @@
 export const getNowPlayingReducer = (state = [], action) => {
     const newState = {
-        nowPlaying:action.nowPlaying,
-        isLoading: false
+        nowPlaying: action.nowPlaying
     }
 
-    switch(action.type) {
+    switch (action.type) {
         case "GET_NOW_PLAYING":
-        return  newState
+            return newState
 
         default:
-        return state
+            return state
     }
 }
