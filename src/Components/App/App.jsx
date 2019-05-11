@@ -27,7 +27,7 @@ class App extends Component {
 	}
 
 	render() {
-		let display = this.state.isLoading ? (
+		let display = this.props.isLoading ? (
 			<section>Loading...</section>
 		) : (
 			<Controls signedIn={this.state.signedIn} favorites={this.state.favorites} />
@@ -47,9 +47,10 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	popular: state.popular,
-	nowPlaying: state.nowPlaying
+const mapStateToProps = ({popular, nowPlaying, isLoading}) => ({
+	popular,
+	nowPlaying,
+	isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

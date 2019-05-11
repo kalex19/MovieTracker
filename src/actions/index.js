@@ -14,7 +14,7 @@ export const getPopular = (popular) => {
 
 export const isLoading = (bool) => {
     return {
-        type: 'IS_LOADNG',
+        type: 'IS_LOADING',
         isLoading: bool
     }
 }

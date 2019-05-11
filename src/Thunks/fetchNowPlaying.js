@@ -1,8 +1,6 @@
-import {
-  isLoading,
-  getNowPlaying,
-  hasErrored
-} from '../actions';
+import {isLoading, getNowPlaying, hasErrored, getPopular} from '../actions';
+import {fetchPopular} from './fetchPopular' 
+import {urlPopular} from '../Util/ApiCalls/urls'
 
 export const fetchNowPlaying = url => {
   return async dispatch => {
@@ -14,9 +12,10 @@ export const fetchNowPlaying = url => {
       }
       const data = await response.json();
       const nowPlaying = data.results;
-      console.log(nowPlaying)
-      dispatch(isLoading(false));
+      const popular = await dispatch(fetchPopular(urlPopular))
       dispatch(getNowPlaying(nowPlaying));
+      dispatch(getPopular(popular))
+      dispatch(isLoading(false));
     } catch (error) {
       dispatch(hasErrored(error.message));
     }
