@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import Controls from '../Controls/Controls';
-import { fetchPop } from '../../Util/ApiCalls/fetchPopular';
-import { fetchNowPlaying } from '../../Util/ApiCalls/fetchNowPlaying';
+import { fetchPopular } from '../../Thunks/fetchPopular';
+import { fetchNowPlaying } from '../../Thunks/fetchNowPlaying';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import apiKey from '../../Util/ApiCalls/apiKey';
 
 class App extends Component {
 	constructor() {
@@ -14,31 +15,16 @@ class App extends Component {
 			userName: '',
 			filteredBy: '',
 			favorites: [],
-			category: '',
-			isLoading: true
+			category: ''
 		};
 	}
 
 	componentDidMount() {
-		this.getPopular();
-		this.getNowPlaying();
+		const urlPopular = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
+		this.props.fetchPopular(urlPopular);
+		const urlNowPLaying = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
+		this.props.fetchNowPlaying(urlNowPLaying);
 	}
-
-	getPopular = () => {
-		fetchPop()
-			.then(results => results.results)
-			.then(popular => this.props.getPopular(popular))
-			.then(this.setState({ isLoading: false }))
-			.catch(error => console.log(error));
-	};
-
-	getNowPlaying = () => {
-		fetchNowPlaying()
-			.then(results => results.results)
-			.then(nowPlaying => this.props.getNowPlaying(nowPlaying))
-			.then(this.setState({ isLoading: false }))
-			.catch(error => console.log(error));
-	};
 
 	render() {
 		let display = this.state.isLoading ? (
@@ -67,8 +53,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	getNowPlaying: nowPlaying => dispatch(actions.getNowPlaying(nowPlaying)),
-	getPopular: popular => dispatch(actions.getPopular(popular))
+	fetchNowPlaying: url => dispatch(fetchNowPlaying(url)),
+	fetchPopular: url => dispatch(fetchPopular(url))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

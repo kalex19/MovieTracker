@@ -33,14 +33,6 @@ class SignIn extends Component {
 	};
 
 	render() {
-		let display;
-		const nowPlaying = this.props.nowPlaying.nowPlaying;
-
-		if (this.props.category === 'nowPlaying' && nowPlaying !== undefined) {
-			display = nowPlaying.map(movie => {
-				return <Card id={movie.id} title={movie.title} image={movie.poster_path} />;
-			});
-		}
 		return (
 			<section>
 				<div>
@@ -59,7 +51,6 @@ class SignIn extends Component {
 						<input type="submit" />
 					</form>
 					<NavLink to="/createAccount">Create Account</NavLink>
-					{display}
 				</div>
 			</section>
 		);

@@ -18,3 +18,10 @@ export const isLoading = (bool) => {
         isLoading: bool
     }
 }
+
+export const hasErrored = (error) => {
+    return {
+        type: 'HAS_ERRORED',
+        hasErrored: error
+    }
+}

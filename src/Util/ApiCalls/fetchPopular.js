@@ -11,27 +11,3 @@ export const fetchPop = async () => {
 }
 
 export default fetchPop;
-
-// import {
-//   hasErrored
-// } from '../actions';
-
-// export const fetchBios = (staffArray) => {
-//   return (dispatch) => {
-//     const unresolvedPromises = staffArrya.map(async staffMember => {
-//       try {
-//         if (!response.ok) {
-//           throw Error(response.statusText)
-//         }
-//         const data = await response.json()
-//         return {
-//           ...data,
-//           name: staffMember.name
-//         }
-//       } catch (error) {
-//         dispatch(hasErrored(error.message))
-//       }
-//     })
-//     return Promise.all(unresolvedPromises)
-//   }
-// }
