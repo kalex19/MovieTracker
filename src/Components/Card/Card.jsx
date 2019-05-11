@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchPop } from '../../Util/ApiCalls/fetchPopular';
-import { fetchNowPlaying } from '../../Util/ApiCalls/fetchNowPlaying';
 
 const Card = ({ title, image, id, type }) => {
 	return (
