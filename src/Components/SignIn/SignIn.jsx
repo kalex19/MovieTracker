@@ -35,8 +35,8 @@ class SignIn extends Component {
 
 	render() {
 		return (
-			<section className="signIn">
-				<div>
+			<section>
+				<div className="signIn">
 					<form onSubmit={this.handleSubmit} className="signInSubmit">
 						<h3>LogIn</h3>
 						<label htmlFor="email-existing">Email</label>
@@ -49,9 +49,11 @@ class SignIn extends Component {
 							id="password-existing"
 							onChange={this.handleChange}
 						/>
-						<input type="submit" />
+						<input type="submit" className="submitAccountBtn" />
 					</form>
-					<NavLink to="/createAccount">Create Account</NavLink>
+					<NavLink to="/createAccount" className="createAccountLink">
+						Create Account
+					</NavLink>
 				</div>
 			</section>
 		);
