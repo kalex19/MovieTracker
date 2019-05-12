@@ -6,6 +6,7 @@ import { fetchNowPlaying } from '../../Thunks/fetchNowPlaying';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import apiKey from '../../Util/ApiCalls/apiKey';
+import Styles from './App.scss';
 
 class App extends Component {
 	constructor() {
@@ -35,10 +36,10 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<div className="header-section">
+				<div className="header">
 					<header>
-						<h1>Movie Tracker</h1>
-						<input type="text" />
+						<h1 className="siteTitle">Movie Tracker</h1>
+						<input type="text" className="searchInput" value="Search Movies...." />
 					</header>
 				</div>
 				{display}
@@ -47,7 +48,7 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = ({popular, nowPlaying, isLoading}) => ({
+const mapStateToProps = ({ popular, nowPlaying, isLoading }) => ({
 	popular,
 	nowPlaying,
 	isLoading

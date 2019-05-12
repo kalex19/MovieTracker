@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card/Card';
 import { connect } from 'react-redux';
+import Styles from './CardContainer.scss';
 
 const CardContainer = props => {
 	const nowPlaying = props.nowPlaying.nowPlaying;
@@ -20,7 +21,7 @@ const CardContainer = props => {
 		});
 	}
 
-	return <main>{display}</main>;
+	return <main className="cardContainer">{display}</main>;
 };
 
 const mapStateToProps = ({popular, nowPlaying}) => ({

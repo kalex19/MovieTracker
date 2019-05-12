@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import SignIn from '../SignIn/SignIn';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import CardDetails from '../CardDetails/CardDetails';
+import Styles from './Controls.scss';
 
 const Controls = props => {
 	const popularProps = props.popular;
@@ -16,8 +17,8 @@ const Controls = props => {
 
 
 	return (
-		<section>
-			<div>
+		<section className="controls">
+			<div className="controlButtons">
 				<NavLink to="/nowPlaying" className="nav">
 					Going Out
 				</NavLink>

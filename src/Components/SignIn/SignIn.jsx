@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import postUser from '../../Util/ApiCalls/postUser';
 import Card from '../Card/Card';
+import Styles from './SignIn.scss';
 
 class SignIn extends Component {
 	constructor() {
@@ -35,8 +36,8 @@ class SignIn extends Component {
 	render() {
 		return (
 			<section>
-				<div>
-					<form onSubmit={this.handleSubmit}>
+				<div className="signIn">
+					<form onSubmit={this.handleSubmit} className="signInSubmit">
 						<h3>LogIn</h3>
 						<label htmlFor="email-existing">Email</label>
 						<input type="email" name="email" placeholder="Email" id="email-existing" onChange={this.handleChange} />
@@ -48,9 +49,11 @@ class SignIn extends Component {
 							id="password-existing"
 							onChange={this.handleChange}
 						/>
-						<input type="submit" />
+						<input type="submit" className="submitAccountBtn" />
 					</form>
-					<NavLink to="/createAccount">Create Account</NavLink>
+					<NavLink to="/createAccount" className="createAccountLink">
+						Create Account
+					</NavLink>
 				</div>
 			</section>
 		);
