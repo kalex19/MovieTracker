@@ -5,13 +5,14 @@ import { Route, NavLink } from 'react-router-dom';
 import SignIn from '../SignIn/SignIn';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import CardDetails from '../CardDetails/CardDetails';
+import Styles from './Controls.scss';
 
 const Controls = props => {
 	// const nowPlaying = props.nowPlaying.nowPlaying;
 	// const popular = props.popular.popular;
 	return (
-		<section>
-			<div>
+		<section className="controls">
+			<div className="controlButtons">
 				<NavLink to="/nowPlaying" className="nav">
 					Going Out
 				</NavLink>

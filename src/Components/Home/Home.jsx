@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
+import Styles from './Home.scss';
 
-export function Home(props) {
+export function Home(props){
 	const popularProps = props.popular;
 	const nowPlayingProps = props.nowPlaying;
 	const popular = popularProps.popular;
@@ -11,35 +12,34 @@ export function Home(props) {
 	let displayNow;
 	let displayPop;
 
-	console.log("popular", popular, "nowPlaying", nowPlaying);
-	
+	console.log('popular', popular, 'nowPlaying', nowPlaying);
 
-
-
-	if(props.isLoading) {
-		return <section>Loading...</section>
+	if (props.isLoading) {
+		return <section>Loading...</section>;
 	} else {
 		displayNow = nowPlaying.map(movie => {
-			return <Card id={movie.id} title={movie.title} image={movie.poster_path} />
-		})
-		if(props.isLoading) {
-			return <section>Loading...</section>
+			return <Card id={movie.id} title={movie.title} image={movie.poster_path} />;
+		});
+		if (props.isLoading) {
+			return <section>Loading...</section>;
 		} else {
 			displayPop = popular.map(movie => {
-					return <Card id={movie.id} title={movie.title} image={movie.poster_path} />
-			})
+				return <Card id={movie.id} title={movie.title} image={movie.poster_path} />;
+			});
 		}
 	}
 
 	return (
-		<div>
-			<h3> Hello</h3>
-			<h4> Click on the links above to see a variety of movies </h4>
+		<div className="home">
+			<div className="helloMessage">
+				<h3> Hello</h3>
+				<h4> Click on the links above to see a variety of movies </h4>
+			</div>
 			{displayNow}
 			{displayPop}
 		</div>
 	);
-};
+}
 
 const mapStateToProps = ({ popular, nowPlaying, isLoading }) => ({
 	popular,

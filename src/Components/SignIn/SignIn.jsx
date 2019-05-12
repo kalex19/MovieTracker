@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import postUser from '../../Util/ApiCalls/postUser';
 import Card from '../Card/Card';
+import Styles from './SignIn.scss';
 
 class SignIn extends Component {
 	constructor() {
@@ -34,9 +35,9 @@ class SignIn extends Component {
 
 	render() {
 		return (
-			<section>
+			<section className="signIn">
 				<div>
-					<form onSubmit={this.handleSubmit}>
+					<form onSubmit={this.handleSubmit} className="signInSubmit">
 						<h3>LogIn</h3>
 						<label htmlFor="email-existing">Email</label>
 						<input type="email" name="email" placeholder="Email" id="email-existing" onChange={this.handleChange} />
