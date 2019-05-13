@@ -4,9 +4,11 @@ import Styles from './Card.scss';
 
 const Card = ({ title, image, id, type }) => {
 	return (
-		<Link to={`${type}/${id} `} key={id} className="card">
+		<Link to={`/popular/${id} `} key={id} className="card">
+		<div className="card-wrapper">
 			<h3 className="cardTitle">{title}</h3>
 			<img src={'http://image.tmdb.org/t/p/w200' + image} alt="movie poster" className="cardImage" />
+		</div>
 		</Link>
 	);
 };
