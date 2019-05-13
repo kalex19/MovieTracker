@@ -33,9 +33,9 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps)(CardContainer);
 
 CardContainer.propTypes = {
-	popular: PropType.array,
-	nowPlaying: PropType.array,
-	id: PropType.num,
-	image: PropType.string,
-	title: PropType.string
+	popular: PropTypes.array,
+	nowPlaying: PropTypes.array,
+	id: PropTypes.num,
+	image: PropTypes.string,
+	title: PropTypes.string
 };
