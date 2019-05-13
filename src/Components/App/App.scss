@@ -1,9 +1,11 @@
 .App {
-  background-color: #f00;
+  background:linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8));
+  min-height: 100vh;
 }
 
 .header {
   text-align: center;
+  background-color:  #484F51
 }
 
 .siteTitle {
