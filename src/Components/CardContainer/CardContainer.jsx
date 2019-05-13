@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '../Card/Card';
 import { connect } from 'react-redux';
 import Styles from './CardContainer.scss';
+import PropTypes from 'prop-types';
 
 const CardContainer = props => {
 	const nowPlaying = props.nowPlaying.nowPlaying;
@@ -30,3 +31,11 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(CardContainer);
+
+CardContainer.propTypes = {
+	popular: PropType.array,
+	nowPlaying: PropType.array,
+	id: PropType.num,
+	image: PropType.string,
+	title: PropType.string
+};

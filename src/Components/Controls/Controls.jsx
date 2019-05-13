@@ -6,6 +6,7 @@ import SignIn from '../SignIn/SignIn';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import CardDetails from '../CardDetails/CardDetails';
 import Styles from './Controls.scss';
+import PropTypes from 'prop-types';
 
 const Controls = props => {
 	// const nowPlaying = props.nowPlaying.nowPlaying;
@@ -51,3 +52,8 @@ const Controls = props => {
 };
 
 export default Controls;
+
+// Controls.propTypes = {
+// 	handleChange: PropType.func,
+// 	password: PropType.string
+// };

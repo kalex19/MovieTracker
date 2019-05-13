@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
 import Styles from './Home.scss';
+import PropTypes from 'prop-types';
 
 export function Home(props){
 	const popularProps = props.popular;
@@ -48,3 +49,12 @@ const mapStateToProps = ({ popular, nowPlaying, isLoading }) => ({
 });
 
 export default connect(mapStateToProps)(Home);
+
+Home.propTypes = {
+	popular: PropType.array,
+	nowPlaying: PropType.array,
+	id: PropType.num,
+	title: PropType.string,
+	poster_path: PropType.string,
+	isLoading: PropType.bool
+};

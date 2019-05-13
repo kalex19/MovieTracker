@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import postUser from '../../Util/ApiCalls/postUser';
 import Card from '../Card/Card';
 import Styles from './SignIn.scss';
+import PropTypes from 'prop-types';
 
 class SignIn extends Component {
 	constructor() {
@@ -61,3 +62,10 @@ class SignIn extends Component {
 }
 
 export default SignIn;
+
+SignIn.propTypes = {
+	handleChange: PropType.func,
+	handleSubmit: PropTypes.func,
+	email: PropTypes.string,
+	password: PropTypes.string
+};

@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import apiKey from '../../Util/ApiCalls/apiKey';
 import Styles from './App.scss';
+import PropTypes from 'prop-types';
 
 class App extends Component {
 	constructor() {
@@ -60,3 +61,11 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+App.propTypes = {
+	signedIn: PropType.bool,
+	userName: PropTypes.string,
+	filteredBy: PropTypes.string,
+	favorites: PropTypes.array,
+	category: PropTypes.string
+};
