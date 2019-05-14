@@ -2,7 +2,7 @@ import React from 'react';
 import Home from '../Home/Home';
 import CardContainer from '../CardContainer/CardContainer';
 import { Route, NavLink } from 'react-router-dom';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux';
 import SignIn from '../SignIn/SignIn';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import CardDetails from '../CardDetails/CardDetails';
@@ -14,8 +14,6 @@ const Controls = props => {
 	const nowPlayingProps = props.nowPlaying;
 	const popular = popularProps.popular;
 	const nowPlaying = nowPlayingProps.nowPlaying;
-
-
 
 	return (
 		<section className="controls">
@@ -33,9 +31,10 @@ const Controls = props => {
 			<Route exact path="/nowPlaying" component={() => <CardContainer category="nowPlaying" />} />
 			<Route exact path="/popular" component={() => <CardContainer category="popular" />} />
 			<Route exact path="/createAccount" component={CreateAccount} />
-			<Route 
-			 path='popular/:id' render={({ match }) => {
-				console.log("matchid",match.params.id, "match", match)
+			<Route
+				path="popular/:id"
+				render={({ match }) => {
+					console.log('matchid', match.params.id, 'match', match);
 					const { id } = match.params;
 					const card = popular.find(movie => movie.id === parseInt(id));
 					if (card) {
@@ -57,15 +56,15 @@ const Controls = props => {
 	);
 };
 
-const mapStateToProps = ({popular, nowPlaying}) => ({
+const mapStateToProps = ({ popular, nowPlaying }) => ({
 	popular,
 	nowPlaying
-})
+});
 
 export default connect(mapStateToProps)(Controls);
 
 Controls.propTypes = {
-	handleChange: PropType.func,
-	password: PropType.string
+	handleChange: PropTypes.func,
+	password: PropTypes.string
 };
 

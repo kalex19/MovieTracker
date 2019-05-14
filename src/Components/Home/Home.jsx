@@ -33,8 +33,8 @@ export function Home(props){
 	return (
 		<div className="home">
 			<div className="helloMessage">
-				<h3> Hello</h3>
-				<h4> Click on the links above to see a variety of movies </h4>
+				<h3>What will it be tonight?</h3>
+				<h4>Are you staying in or going out?</h4>
 			</div>
 			{displayNow}
 			{displayPop}
@@ -53,7 +53,7 @@ export default connect(mapStateToProps)(Home);
 Home.propTypes = {
 	popular: PropTypes.array,
 	nowPlaying: PropTypes.array,
-	id: PropTypes.num,
+	id: PropTypes.number,
 	title: PropTypes.string,
 	poster_path: PropTypes.string,
 	isLoading: PropTypes.bool

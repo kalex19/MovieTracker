@@ -35,7 +35,7 @@ export default connect(mapStateToProps)(CardContainer);
 CardContainer.propTypes = {
 	popular: PropTypes.array,
 	nowPlaying: PropTypes.array,
-	id: PropTypes.num,
+	id: PropTypes.number,
 	image: PropTypes.string,
 	title: PropTypes.string
 };

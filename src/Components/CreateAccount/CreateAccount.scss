@@ -1,0 +1,57 @@
+.createAccount {
+  display: flex;
+  justify-content: center;
+}
+
+.createAccount {
+  background-image: url('https://images.unsplash.com/photo-1458053688450-eef5d21d43b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80');
+  height: 100vh;
+}
+
+
+input {
+  margin: 2px 0;
+}
+
+.createAccountSubmit {
+  padding: 10px;
+  border: 3px solid black;
+  background: #6B6D76;
+  opacity: .8;
+  width: 500px;
+  margin-top: 94px;
+  color: white;
+  max-height: 500px;
+  display: inline-grid;
+}
+
+.createAccountSubmit label {
+  margin: 2%;
+}
+
+.title {
+  text-align: center;
+}
+
+.createAccountSubmit input {
+  height: 40px;
+  width: 57%;
+  font-size: 1em;
+}
+
+.createAccountBtn {
+  height: 30px;
+  background-color: #000;
+  color: white;
+  margin: 10px;
+  margin-left: 120px;
+  font-size: 20px;
+}
+
+.createAccountLink {
+  margin-left: 120px;
+}
+
+.createAccountBtn:hover {
+  color: #8B0000;
+}

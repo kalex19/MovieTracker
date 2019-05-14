@@ -7,6 +7,7 @@
   box-shadow: 10px 7px 5px -5px #FCB033;
   width: 250px;
   min-height: 400px;
+  border-radius: 3%;
 }
 
 .cardImage {
@@ -14,7 +15,7 @@
 }
 
 .cardTitle {
-  margin: 2px 0 10px 0;
+  margin: 10px 0 10px 0;
   width: 250px;
   overflow: hidden;
   white-space: nowrap;
@@ -30,5 +31,28 @@
   text-overflow: ellipsis;
   width: 250px;
   min-height: 400px;
+  border-top: 5px dashed #FCB033;
+  display: inline-grid;
+}
 
+.fa-star {
+  margin: 5%;
+}
+
+.fa-star:hover {
+  color: #FCB033;
+  margin: 5%;
+}
+
+
+.card {
+  background: #484F51;
+  border-radius: 2px;
+  transition-property: background, border-radius;
+  transition-duration: .2s, 1s;
+  transition-timing-function: linear;
+}
+
+.card:hover {
+  border-radius: 5%;
 }

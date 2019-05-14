@@ -32,7 +32,7 @@ class CreateAccount extends Component {
 		return (
 			<section className="createAccount">
 				<form onSubmit={this.handleSubmit} className="createAccountSubmit">
-					<h3>Create Account</h3>
+					<h3 classNam="title">Create Account</h3>
 					<label htmlFor="name">Name</label>
 					<input
 						type="text"
@@ -62,7 +62,7 @@ class CreateAccount extends Component {
 					/>
 					<label htmlFor="password-confirm">Confirm Password</label>
 					<input type="password" name="password" placeholder="Password" id="password-confirm" />
-					<input type="submit" />
+					<input type="submit" className="createAccountBtn" />
 				</form>
 			</section>
 		);
