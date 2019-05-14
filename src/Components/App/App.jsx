@@ -41,7 +41,7 @@ class App extends Component {
 				<div className="title">
 					<header>
 						<h1 className="siteTitle">
-							Ripe<img src="../../images/popcorn.png" />Avocado
+							Movie<img src="../../images/popcorn.png" />Tracker
 						</h1>
 						<input type="text" className="searchInput" value="Search Movies...." />
 					</header>
