@@ -32,12 +32,10 @@ class CreateAccount extends Component {
 		const { email, password, name } = this.state;
 		const body = { email, password, name };
 		try {
-			const postResponse = await checkUser(urlCheckUser, email);
+			const postResponse = await postUser(urlAddNewUser, body);
 			await console.log(postResponse)
-			await this.displayError();
 		} catch (error) {
-			postUser(urlAddNewUser, body)
-		
+			this.displayError()
 		}
 	}
 
