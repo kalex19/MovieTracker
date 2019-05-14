@@ -25,7 +25,7 @@ const CardContainer = props => {
 	return <main className="cardContainer">{display}</main>;
 };
 
-const mapStateToProps = ({ popular, nowPlaying }) => ({
+const mapStateToProps = ({popular, nowPlaying}) => ({
 	popular: popular,
 	nowPlaying: nowPlaying
 });

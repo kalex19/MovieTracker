@@ -4,14 +4,11 @@ import { Link } from 'react-router-dom';
 import Styles from './CardDetails.scss';
 import PropTypes from 'prop-types';
 
-const CardDetails = ({ id, title }) => {
-	const type = 'popular';
+const CardDetails = ({id, title }) => {
+	const type = 'popular'
 	return (
 		<div>
-			<Link to={`${type}/${id}`} className="back-btn">
-				{' '}
-				◀ back
-			</Link>
+			<Link to={`${type}/${id}`} className="back-btn"> ◀ back</Link>
 			<h1>{title}</h1>
 		</div>
 	);

@@ -4,6 +4,7 @@ import CardContainer from '../CardContainer/CardContainer';
 import { Route, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SignIn from '../SignIn/SignIn';
+import SignOut from '../SignOut/SignOut';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import CardDetails from '../CardDetails/CardDetails';
 import Styles from './Controls.scss';
@@ -15,19 +16,30 @@ const Controls = props => {
 	const popular = popularProps.popular;
 	const nowPlaying = nowPlayingProps.nowPlaying;
 
+	let inNOut;
+	 inNOut = props.isLoggedIn ? (
+		 <NavLink to='/signOut'>Sign Out</NavLink> 
+
+	 )
+	 :	(
+		 <NavLink to="/signIn">Sign In</NavLink>	 
+	 )
+
 	return (
 		<section className="controls">
 			<div className="controlButtons">
 				<NavLink to="/nowPlaying" className="nav">
-					Going Out
+					In Theaters
 				</NavLink>
 				<NavLink to="/popular" className="nav">
-					Staying In
+					Popular
 				</NavLink>
-				<NavLink to="/signIn">Sign In</NavLink>
+				{inNOut}
+				
 			</div>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/signIn" component={SignIn} />
+			<Route exact path="/signOut" component={SignOut}/>
 			<Route exact path="/nowPlaying" component={() => <CardContainer category="nowPlaying" />} />
 			<Route exact path="/popular" component={() => <CardContainer category="popular" />} />
 			<Route exact path="/createAccount" component={CreateAccount} />
@@ -43,7 +55,7 @@ const Controls = props => {
 				}}
 			/>
 			<Route
-				path="/nowPlaying/:id"
+				 path="/nowPlaying/:id"
 				render={({ match }) => {
 					const { id } = match.params;
 					const card = nowPlaying.find(movie => movie.id === parseInt(id));
@@ -56,9 +68,10 @@ const Controls = props => {
 	);
 };
 
-const mapStateToProps = ({ popular, nowPlaying }) => ({
+const mapStateToProps = ({ popular, nowPlaying, isLoggedIn }) => ({
 	popular,
-	nowPlaying
+	nowPlaying,
+	isLoggedIn
 });
 
 export default connect(mapStateToProps)(Controls);
@@ -67,3 +80,4 @@ Controls.propTypes = {
 	handleChange: PropTypes.func,
 	password: PropTypes.string
 };
+

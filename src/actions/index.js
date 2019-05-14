@@ -25,3 +25,10 @@ export const hasErrored = (error) => {
         hasErrored: error
     }
 }
+
+export const toggleLogIn = (bool) => {
+    return {
+        type:'TOGGLE_LOGIN',
+        isLoggedIn : bool
+    }
+}
