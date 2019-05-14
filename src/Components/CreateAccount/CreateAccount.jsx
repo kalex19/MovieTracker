@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import postUser from '../../Util/ApiCalls/postUser';
 import Styles from './CreateAccount.scss';
+import PropTypes from 'prop-types';
 
 class CreateAccount extends Component {
 	constructor() {
@@ -69,3 +70,12 @@ class CreateAccount extends Component {
 }
 
 export default CreateAccount;
+
+CreateAccount.propTypes = {
+	handleChange: PropType.func,
+	password: PropType.string,
+	email: PropType.string,
+	name: PropType.string,
+	title: PropType.string,
+	handleSubmit: PropType.func
+};

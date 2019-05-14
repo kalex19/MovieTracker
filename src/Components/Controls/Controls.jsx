@@ -7,6 +7,7 @@ import SignIn from '../SignIn/SignIn';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import CardDetails from '../CardDetails/CardDetails';
 import Styles from './Controls.scss';
+import PropTypes from 'prop-types';
 
 const Controls = props => {
 	const popularProps = props.popular;
@@ -62,3 +63,9 @@ const mapStateToProps = ({popular, nowPlaying}) => ({
 })
 
 export default connect(mapStateToProps)(Controls);
+
+Controls.propTypes = {
+	handleChange: PropType.func,
+	password: PropType.string
+};
+
