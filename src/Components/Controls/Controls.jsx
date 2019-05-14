@@ -43,7 +43,7 @@ const Controls = props => {
 				}}
 			/>
 			<Route
-				path="/nowPlaying/:id"
+				 path="/nowPlaying/:id"
 				render={({ match }) => {
 					const { id } = match.params;
 					const card = nowPlaying.find(movie => movie.id === parseInt(id));
@@ -67,3 +67,4 @@ Controls.propTypes = {
 	handleChange: PropTypes.func,
 	password: PropTypes.string
 };
+
