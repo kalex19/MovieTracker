@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import postUser from '../../Util/ApiCalls/postUser';
 import {urlAddNewUser} from '../../Util/ApiCalls/urls';
-import {urlCheckUser} from '../../Util/ApiCalls/urls';
-import checkUser from '../../Util/ApiCalls/checkUser'
 import Styles from './CreateAccount.scss';
 import PropTypes from 'prop-types';
 
@@ -29,7 +27,6 @@ class CreateAccount extends Component {
 
 	handleSubmit = async e => {
 		e.preventDefault();
-		console.log("add",urlAddNewUser, "check", urlCheckUser)
 		const { email, password, name } = this.state;
 		const body = { email, password, name };
 		try {
