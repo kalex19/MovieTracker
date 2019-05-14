@@ -36,12 +36,12 @@ class SignIn extends Component {
 
 	render() {
 		return (
-			<section>
+			<section className="signIn-background">
 				<div className="signIn">
 					<form onSubmit={this.handleSubmit} className="signInSubmit">
 						<h3>LogIn</h3>
 						<label htmlFor="email-existing">Email</label>
-						<input type="email" name="email" placeholder="Email" id="email-existing" onChange={this.handleChange} />
+						<input type="email" name="email" placeholder="Email" id="email-existing" className="email" onChange={this.handleChange} />
 						<label htmlFor="password-existing">Password</label>
 						<input
 							type="password"
@@ -51,10 +51,10 @@ class SignIn extends Component {
 							onChange={this.handleChange}
 						/>
 						<input type="submit" className="submitAccountBtn" />
-					</form>
-					<NavLink to="/createAccount" className="createAccountLink">
+						<NavLink to="/createAccount" className="createAccountLink">
 						Create Account
 					</NavLink>
+					</form>
 				</div>
 			</section>
 		);

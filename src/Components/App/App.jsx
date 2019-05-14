@@ -37,7 +37,7 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<div className="header">
+				<div className="title">
 					<header>
 						<h1 className="siteTitle">Movie Tracker</h1>
 						<input type="text" className="searchInput" value="Search Movies...." />

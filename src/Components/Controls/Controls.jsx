@@ -2,6 +2,7 @@ import React from 'react';
 import Home from '../Home/Home';
 import CardContainer from '../CardContainer/CardContainer';
 import { Route, NavLink } from 'react-router-dom';
+import {connect} from 'react-redux'
 import SignIn from '../SignIn/SignIn';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import CardDetails from '../CardDetails/CardDetails';
@@ -9,8 +10,13 @@ import Styles from './Controls.scss';
 import PropTypes from 'prop-types';
 
 const Controls = props => {
-	// const nowPlaying = props.nowPlaying.nowPlaying;
-	// const popular = props.popular.popular;
+	const popularProps = props.popular;
+	const nowPlayingProps = props.nowPlaying;
+	const popular = popularProps.popular;
+	const nowPlaying = nowPlayingProps.nowPlaying;
+
+
+
 	return (
 		<section className="controls">
 			<div className="controlButtons">
@@ -27,9 +33,9 @@ const Controls = props => {
 			<Route exact path="/nowPlaying" component={() => <CardContainer category="nowPlaying" />} />
 			<Route exact path="/popular" component={() => <CardContainer category="popular" />} />
 			<Route exact path="/createAccount" component={CreateAccount} />
-			{/* <Route
-				path="/popluar/:id"
-				render={({ match }) => {
+			<Route 
+			 path='popular/:id' render={({ match }) => {
+				console.log("matchid",match.params.id, "match", match)
 					const { id } = match.params;
 					const card = popular.find(movie => movie.id === parseInt(id));
 					if (card) {
@@ -38,7 +44,7 @@ const Controls = props => {
 				}}
 			/>
 			<Route
-				path="/nowPlaying/:id"
+				 path="/nowPlaying/:id"
 				render={({ match }) => {
 					const { id } = match.params;
 					const card = nowPlaying.find(movie => movie.id === parseInt(id));
@@ -46,14 +52,20 @@ const Controls = props => {
 						return <CardDetails {...card} />;
 					}
 				}}
-			/> */}
+			/>
 		</section>
 	);
 };
 
-export default Controls;
+const mapStateToProps = ({popular, nowPlaying}) => ({
+	popular,
+	nowPlaying
+})
 
-// Controls.propTypes = {
-// 	handleChange: PropType.func,
-// 	password: PropType.string
-// };
+export default connect(mapStateToProps)(Controls);
+
+Controls.propTypes = {
+	handleChange: PropType.func,
+	password: PropType.string
+};
+
