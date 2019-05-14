@@ -7,7 +7,7 @@ export const postUser = async (url, body) => {
         }
     })
     if (!response.ok) {
-        throw new Error('Failed to Post')
+         throw new Error('Something went wrong')
     } else {
         return response.json();
     }

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import postUser from '../../Util/ApiCalls/postUser';
+import {urlAddNewUser} from '../../Util/ApiCalls/urls';
+import {urlCheckUser} from '../../Util/ApiCalls/urls';
+import checkUser from '../../Util/ApiCalls/checkUser'
 import Styles from './CreateAccount.scss';
 import PropTypes from 'prop-types';
 
@@ -9,8 +12,13 @@ class CreateAccount extends Component {
 		this.state = {
 			email: '',
 			password: '',
-			name: ''
+			name: '',
+			errored: false
 		};
+	}
+
+	displayError = () => {
+		this.setState({errored:true})
 	}
 
 	handleChange = e => {
@@ -19,20 +27,32 @@ class CreateAccount extends Component {
 		});
 	};
 
-	handleSubmit = e => {
+	handleSubmit = async e => {
 		e.preventDefault();
-		const url = 'http://localhost:3000/api/users/new';
+		console.log("add",urlAddNewUser, "check", urlCheckUser)
 		const { email, password, name } = this.state;
 		const body = { email, password, name };
-		console.log(this.state.name);
-		postUser(url, body);
-	};
+		try {
+			const postResponse = await postUser(urlAddNewUser, body);
+			await console.log(postResponse)
+		} catch (error) {
+			this.displayError()
+		}
+	}
 
 	render() {
+		let displayError; 
+
+		displayError = this.state.errored ? 
+		<div className="error-message">
+			<p>Email already exists, please use a different email</p>
+		</div>
+		: null
 		return (
 			<section className="createAccount">
 				<form onSubmit={this.handleSubmit} className="createAccountSubmit">
-					<h3 classNam="title">Create Account</h3>
+					<h3>Create Account</h3>
+					{displayError}
 					<label htmlFor="name">Name</label>
 					<input
 						type="text"
