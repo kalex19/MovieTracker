@@ -20,10 +20,10 @@ const Controls = props => {
 		<section className="controls">
 			<div className="controlButtons">
 				<NavLink to="/nowPlaying" className="nav">
-					Going Out
+					In Theaters
 				</NavLink>
 				<NavLink to="/popular" className="nav">
-					Staying In
+					Popular
 				</NavLink>
 				<NavLink to="/signIn">Sign In</NavLink>
 			</div>
