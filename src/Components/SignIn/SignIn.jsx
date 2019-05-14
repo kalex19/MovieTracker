@@ -64,7 +64,7 @@ class SignIn extends Component {
 export default SignIn;
 
 SignIn.propTypes = {
-	handleChange: PropType.func,
+	handleChange: PropTypes.func,
 	handleSubmit: PropTypes.func,
 	email: PropTypes.string,
 	password: PropTypes.string

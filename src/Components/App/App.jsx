@@ -63,7 +63,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 App.propTypes = {
-	signedIn: PropType.bool,
+	signedIn: PropTypes.bool,
 	userName: PropTypes.string,
 	filteredBy: PropTypes.string,
 	favorites: PropTypes.array,

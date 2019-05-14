@@ -72,10 +72,10 @@ class CreateAccount extends Component {
 export default CreateAccount;
 
 CreateAccount.propTypes = {
-	handleChange: PropType.func,
-	password: PropType.string,
-	email: PropType.string,
-	name: PropType.string,
-	title: PropType.string,
-	handleSubmit: PropType.func
+	handleChange: PropTypes.func,
+	password: PropTypes.string,
+	email: PropTypes.string,
+	name: PropTypes.string,
+	title: PropTypes.string,
+	handleSubmit: PropTypes.func
 };

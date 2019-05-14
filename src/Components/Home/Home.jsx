@@ -51,10 +51,10 @@ const mapStateToProps = ({ popular, nowPlaying, isLoading }) => ({
 export default connect(mapStateToProps)(Home);
 
 Home.propTypes = {
-	popular: PropType.array,
-	nowPlaying: PropType.array,
-	id: PropType.num,
-	title: PropType.string,
-	poster_path: PropType.string,
-	isLoading: PropType.bool
+	popular: PropTypes.array,
+	nowPlaying: PropTypes.array,
+	id: PropTypes.num,
+	title: PropTypes.string,
+	poster_path: PropTypes.string,
+	isLoading: PropTypes.bool
 };

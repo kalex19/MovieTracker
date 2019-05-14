@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should mock snapshot 1`] = `undefined`;
+
+exports[`CardContainer should mock snapshot 1`] = `undefined`;
