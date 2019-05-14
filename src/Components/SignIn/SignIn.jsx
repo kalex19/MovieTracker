@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import postUser from '../../Util/ApiCalls/postUser';
+import {urlCheckUser} from '../../Util/ApiCalls/urls'
 import Card from '../Card/Card';
 import Styles from './SignIn.scss';
 
@@ -21,22 +22,17 @@ class SignIn extends Component {
 	};
 
 	displayError = () => {
-		console.log('catch works')
 		this.setState({errored:true})
-
-
 	}
 
 	handleSubmit = async e => {
 		e.preventDefault();
-		const url = 'http://localhost:3000/api/users/';
 		const { email, password } = this.state;
 		const body = { email, password };
 		try {
-			const postResponse = await postUser(url, body);
+			const postResponse = await postUser(urlCheckUser, body);
 			await console.log(postResponse);
 		} catch (error) {
-			// create method that will handle error, add classes & error styling etc.
 			console.log(error);
 			this.displayError();
 		}
