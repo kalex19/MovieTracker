@@ -25,9 +25,9 @@ const CardContainer = props => {
 	return <main className="cardContainer">{display}</main>;
 };
 
-const mapStateToProps = state => ({
-	popular: state.popular,
-	nowPlaying: state.nowPlaying
+const mapStateToProps = ({ popular, nowPlaying }) => ({
+	popular: popular,
+	nowPlaying: nowPlaying
 });
 
 export default connect(mapStateToProps)(CardContainer);
@@ -35,7 +35,7 @@ export default connect(mapStateToProps)(CardContainer);
 CardContainer.propTypes = {
 	popular: PropTypes.array,
 	nowPlaying: PropTypes.array,
-	id: PropTypes.num,
+	id: PropTypes.number,
 	image: PropTypes.string,
 	title: PropTypes.string
 };

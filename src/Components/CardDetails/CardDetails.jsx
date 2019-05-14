@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import Styles from './CardDetails.scss';
 import PropTypes from 'prop-types';
 
-const CardDetails = ({ id, title, image, type }) => {
+const CardDetails = ({ id, title }) => {
+	const type = 'popular';
 	return (
 		<div>
-			<Link to={`/${type}`} className="back-btn">
+			<Link to={`${type}/${id}`} className="back-btn">
+				{' '}
 				◀ back
 			</Link>
 			<h1>{title}</h1>
-			<img src={image} className="app-img-no-hover" />
-			<p className="movie-info">{}</p>
 		</div>
 	);
 };
@@ -20,7 +20,7 @@ const CardDetails = ({ id, title, image, type }) => {
 export default CardDetails;
 
 CardDetails.propTypes = {
-	id: PropTypes.num,
+	id: PropTypes.number,
 	title: PropTypes.string,
 	image: PropTypes.string,
 	type: PropTypes.string

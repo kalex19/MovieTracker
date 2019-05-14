@@ -1,6 +1,23 @@
 .controlButtons {
+  background-color: #FCB033;
   text-align: center;
-  margin: 5%;
+  border-bottom: 8px #484F51;
+  padding: 15px;
   display: flex;
   justify-content: space-around;
+  font-size: 30px;
+}
+
+.active {
+  color: #8B0000;
+  text-decoration: underline;
+  border: 3px solid black;
+  padding: 1%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  border: 3px solid black;
+  padding: 1%;
 }

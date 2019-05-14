@@ -1,10 +1,28 @@
 .signIn {
-  margin: 0px 35%;
+  display: flex;
+  justify-content: center;
+}
+.signIn-background {
+  background-image: url('https://images.unsplash.com/photo-1458053688450-eef5d21d43b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80');
+  height:100vh;
+}
+
+.email {
+  margin-left: 30px;
+}
+
+input {
+  margin: 2px 0;
 }
 
 .signInSubmit {
-  padding: 5%;
+  padding: 10px;
   border: 3px solid black;
+  background: #6B6D76;
+  opacity: .5;
+  width:500px;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 .signInSubmit label {
@@ -20,9 +38,15 @@
   height: 30px;
   background-color: #000;
   color: white;
-  margin: 2%;
+  margin: 10px;
+  margin-left: 120px;
+  font-size: 20px;
 }
 
 .createAccountLink {
-  margin: 20%;
+  margin-left: 120px;
+}
+
+.createAccountLink:hover {
+  color:#8B0000;
 }

@@ -8,6 +8,7 @@ import * as actions from '../../actions';
 import apiKey from '../../Util/ApiCalls/apiKey';
 import Styles from './App.scss';
 import PropTypes from 'prop-types';
+import Images from '../../images/popcorn.png';
 
 class App extends Component {
 	constructor() {
@@ -37,9 +38,11 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<div className="header">
+				<div className="title">
 					<header>
-						<h1 className="siteTitle">Movie Tracker</h1>
+						<h1 className="siteTitle">
+							Date<img src="../../images/popcorn.png" />Night
+						</h1>
 						<input type="text" className="searchInput" value="Search Movies...." />
 					</header>
 				</div>

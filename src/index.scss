@@ -1,0 +1,15 @@
+@import './normalize.scss';
+@import './Components/App/App.scss';
+@import './Components/Card/Card.scss';
+@import './Components/CardContainer/CardContainer.scss';
+@import './Components/CardDetails/CardDetails.scss';
+@import './Components/Controls/Controls.scss';
+@import './Components/CreateAccount/CreateAccount.scss';
+@import './Components/Home/Home.scss';
+@import './Components/SignIn/SignIn.scss';
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
