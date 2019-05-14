@@ -77,4 +77,16 @@ describe('actions', () => {
 
     expect(result).toEqual(expected)
   })
+
+  it('should return a type of TOGGLE_ISLOADING with a boolean', () => {
+    const bool = true;
+    const expected = {
+      type:'TOGGLE_LOGIN',
+      isLoggedIn: bool
+    }
+
+    const result = actions.toggleLogIn(bool)
+
+    expect(result).toEqual(expected)
+  })
 })
