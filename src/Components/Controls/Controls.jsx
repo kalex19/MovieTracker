@@ -4,6 +4,7 @@ import CardContainer from '../CardContainer/CardContainer';
 import { Route, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SignIn from '../SignIn/SignIn';
+import SignOut from '../SignOut/SignOut';
 import CreateAccount from '../CreateAccount/CreateAccount';
 import CardDetails from '../CardDetails/CardDetails';
 import Styles from './Controls.scss';
@@ -15,6 +16,15 @@ const Controls = props => {
 	const popular = popularProps.popular;
 	const nowPlaying = nowPlayingProps.nowPlaying;
 
+	let inNOut;
+	 inNOut = props.isLoggedIn ? (
+		 <NavLink to='/signOut'>Sign Out</NavLink> 
+
+	 )
+	 :	(
+		 <NavLink to="/signIn">Sign In</NavLink>	 
+	 )
+
 	return (
 		<section className="controls">
 			<div className="controlButtons">
@@ -24,10 +34,12 @@ const Controls = props => {
 				<NavLink to="/popular" className="nav">
 					Popular
 				</NavLink>
-				<NavLink to="/signIn">Sign In</NavLink>
+				{inNOut}
+				
 			</div>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/signIn" component={SignIn} />
+			<Route exact path="/signOut" component={SignOut}/>
 			<Route exact path="/nowPlaying" component={() => <CardContainer category="nowPlaying" />} />
 			<Route exact path="/popular" component={() => <CardContainer category="popular" />} />
 			<Route exact path="/createAccount" component={CreateAccount} />
@@ -56,9 +68,10 @@ const Controls = props => {
 	);
 };
 
-const mapStateToProps = ({ popular, nowPlaying }) => ({
+const mapStateToProps = ({ popular, nowPlaying, isLoggedIn }) => ({
 	popular,
-	nowPlaying
+	nowPlaying,
+	isLoggedIn
 });
 
 export default connect(mapStateToProps)(Controls);

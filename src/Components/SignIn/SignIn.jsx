@@ -17,7 +17,7 @@ class SignIn extends Component {
 			email: '',
 			password: '',
 			errored: false,
-			isLoggedIn: false
+			signedIn: false
 		};
 	}
 
@@ -33,7 +33,7 @@ class SignIn extends Component {
 
 	backHome = () => {
 		this.props.toggleLogIn(true)
-		this.setState({isLoggedIn:true})
+		this.setState({signedIn:true})
 	}
 
 	handleSubmit = async e => {
@@ -58,9 +58,8 @@ class SignIn extends Component {
 		</div>
 		: null
 
-		if(this.state.isLoggedIn){
+		if(this.props.isLoggedIn){
 			return <Redirect path='/'/>
-
 	 }
 
 		return (
@@ -96,7 +95,6 @@ const mapStateToProps = ({isLoggedIn}) => ({
 
 const mapDispatchToProps = dispatch => ({
 	toggleLogIn: bool => dispatch(toggleLogIn(bool))
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

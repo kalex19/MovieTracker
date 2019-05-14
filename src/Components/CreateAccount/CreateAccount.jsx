@@ -17,7 +17,6 @@ class CreateAccount extends Component {
 			password: '',
 			name: '',
 			errored: false,
-			isLoggedIn: false
 		};
 	}
 
@@ -27,7 +26,6 @@ class CreateAccount extends Component {
 
 	backHome = () => {
 		this.props.toggleLogIn(true)
-		this.setState({isLoggedIn:true})
 	}
 
 	handleChange = e => {
@@ -57,7 +55,7 @@ class CreateAccount extends Component {
 		</div>
 		: null
 
-		if(this.state.isLoggedIn){
+		if(this.props.isLoggedIn){
 			 return <Redirect path='/'/>
 
 		}
