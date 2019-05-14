@@ -41,7 +41,7 @@ class App extends Component {
 				<div className="title">
 					<header>
 						<h1 className="siteTitle">
-							Date<img src="../../images/popcorn.png" />Night
+							Ripe<img src="../../images/popcorn.png" />Avocado
 						</h1>
 						<input type="text" className="searchInput" value="Search Movies...." />
 					</header>

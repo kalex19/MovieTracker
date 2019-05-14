@@ -2,9 +2,10 @@
   display: flex;
   justify-content: center;
 }
+
 .signIn-background {
   background-image: url('https://images.unsplash.com/photo-1458053688450-eef5d21d43b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80');
-  height:100vh;
+  height: 100vh;
 }
 
 .email {
@@ -19,10 +20,11 @@ input {
   padding: 10px;
   border: 3px solid black;
   background: #6B6D76;
-  opacity: .5;
-  width:500px;
+  opacity: .8;
+  width: 500px;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 94px;
+  color: white;
 }
 
 .signInSubmit label {
@@ -30,8 +32,9 @@ input {
 }
 
 .signInSubmit input {
-  height: 30px;
+  height: 40px;
   width: 57%;
+  font-size: 1em;
 }
 
 .submitAccountBtn {
@@ -48,5 +51,5 @@ input {
 }
 
 .createAccountLink:hover {
-  color:#8B0000;
+  color: #8B0000;
 }
