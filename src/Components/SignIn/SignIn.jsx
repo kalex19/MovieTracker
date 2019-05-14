@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import postUser from '../../Util/ApiCalls/postUser';
 import {urlCheckUser} from '../../Util/ApiCalls/urls'
+import {Redirect} from 'react-router'
+import { connect } from 'react-redux';
 import Card from '../Card/Card';
 import Styles from './SignIn.scss';
 import PropTypes from 'prop-types';
+import {toggleLogIn} from '../../actions'
+
 
 class SignIn extends Component {
 	constructor() {
@@ -12,7 +16,8 @@ class SignIn extends Component {
 		this.state = {
 			email: '',
 			password: '',
-			errored: false
+			errored: false,
+			isLoggedIn: false
 		};
 	}
 
@@ -26,13 +31,18 @@ class SignIn extends Component {
 		this.setState({errored:true})
 	}
 
+	backHome = () => {
+		this.props.toggleLogIn(true)
+		this.setState({isLoggedIn:true})
+	}
+
 	handleSubmit = async e => {
 		e.preventDefault();
 		const { email, password } = this.state;
 		const body = { email, password };
 		try {
 			const postResponse = await postUser(urlCheckUser, body);
-			await console.log(postResponse);
+			await this.backHome()
 		} catch (error) {
 			console.log(error);
 			this.displayError();
@@ -47,6 +57,11 @@ class SignIn extends Component {
 			<p>Email or Password is incorrect</p>
 		</div>
 		: null
+
+		if(this.state.isLoggedIn){
+			return <Redirect path='/'/>
+
+	 }
 
 		return (
 			<section className="signIn-background">
@@ -75,7 +90,16 @@ class SignIn extends Component {
 	}
 }
 
-export default SignIn;
+const mapStateToProps = ({isLoggedIn}) => ({
+	isLoggedIn
+})
+
+const mapDispatchToProps = dispatch => ({
+	toggleLogIn: bool => dispatch(toggleLogIn(bool))
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
 
 SignIn.propTypes = {
 	handleChange: PropTypes.func,

@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import postUser from '../../Util/ApiCalls/postUser';
 import {urlAddNewUser} from '../../Util/ApiCalls/urls';
+import {Redirect} from 'react-router'
+import { connect } from 'react-redux';
+import Home from '../Home/Home'
 import Styles from './CreateAccount.scss';
 import PropTypes from 'prop-types';
+import {toggleLogIn} from '../../actions'
+
 
 class CreateAccount extends Component {
 	constructor() {
@@ -11,12 +16,18 @@ class CreateAccount extends Component {
 			email: '',
 			password: '',
 			name: '',
-			errored: false
+			errored: false,
+			isLoggedIn: false
 		};
 	}
 
 	displayError = () => {
 		this.setState({errored:true})
+	}
+
+	backHome = () => {
+		this.props.toggleLogIn(true)
+		this.setState({isLoggedIn:true})
 	}
 
 	handleChange = e => {
@@ -31,7 +42,7 @@ class CreateAccount extends Component {
 		const body = { email, password, name };
 		try {
 			const postResponse = await postUser(urlAddNewUser, body);
-			await console.log(postResponse)
+			await this.backHome()
 		} catch (error) {
 			this.displayError()
 		}
@@ -45,6 +56,13 @@ class CreateAccount extends Component {
 			<p>Email already exists, please use a different email</p>
 		</div>
 		: null
+
+		if(this.state.isLoggedIn){
+			 return <Redirect path='/'/>
+
+		}
+		
+
 		return (
 			<section className="createAccount">
 				<form onSubmit={this.handleSubmit} className="createAccountSubmit">
@@ -86,7 +104,17 @@ class CreateAccount extends Component {
 	}
 }
 
-export default CreateAccount;
+const mapStateToProps = ({isLoggedIn}) => ({
+	isLoggedIn
+})
+
+const mapDispatchToProps = dispatch => ({
+	toggleLogIn: bool => dispatch(toggleLogIn(bool))
+
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateAccount);
 
 CreateAccount.propTypes = {
 	handleChange: PropTypes.func,
