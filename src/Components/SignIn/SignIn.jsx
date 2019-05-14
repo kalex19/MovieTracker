@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import {toggleLogIn} from '../../actions'
 
 
-class SignIn extends Component {
+export class SignIn extends Component {
 	constructor() {
 		super();
 		this.state = {

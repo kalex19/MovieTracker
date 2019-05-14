@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Styles from './CardContainer.scss';
 import PropTypes from 'prop-types';
 
-const CardContainer = props => {
+export const CardContainer = props => {
 	const nowPlaying = props.nowPlaying.nowPlaying;
 	const popular = props.popular.popular;
 

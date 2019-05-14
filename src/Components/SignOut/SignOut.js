@@ -3,7 +3,7 @@ import {Redirect} from 'react-router'
 import { connect } from 'react-redux'; 
 import {toggleLogIn} from '../../actions'
 
-const SignOut = (props) => {
+export const SignOut = (props) => {
   props.toggleLogIn(false)
   return(
     <Redirect path="/"/>
