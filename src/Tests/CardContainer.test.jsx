@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  shallow
-} from 'enzyme';
-import Card from '../Components/Card/Card';
+import {shallow} from 'enzyme';
+import {CardContainer} from '../Components/CardContainer/CardContainer';
 
 
-describe('Card', () => {
+describe('CardContainer', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow( < Card / > );
+    wrapper = shallow( <CardContainer/> );
   });
 
   it('should mock snapshot', () => {

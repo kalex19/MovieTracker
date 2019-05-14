@@ -10,7 +10,7 @@ import CardDetails from '../CardDetails/CardDetails';
 import Styles from './Controls.scss';
 import PropTypes from 'prop-types';
 
-const Controls = props => {
+export const Controls = props => {
 	const popularProps = props.popular;
 	const nowPlayingProps = props.nowPlaying;
 	const popular = popularProps.popular;

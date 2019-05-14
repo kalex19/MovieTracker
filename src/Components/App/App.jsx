@@ -10,7 +10,7 @@ import Styles from './App.scss';
 import PropTypes from 'prop-types';
 import Images from '../../images/popcorn.png';
 
-class App extends Component {
+export class App extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -41,7 +41,7 @@ class App extends Component {
 				<div className="title">
 					<header>
 						<h1 className="siteTitle">
-							Ripe<img src="../../images/popcorn.png" />Avocado
+							Movie<img src="../../images/popcorn.png" />Tracker
 						</h1>
 						<input type="text" className="searchInput" value="Search Movies...." />
 					</header>
@@ -52,13 +52,13 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = ({ popular, nowPlaying, isLoading }) => ({
+export const mapStateToProps = ({ popular, nowPlaying, isLoading }) => ({
 	popular,
 	nowPlaying,
 	isLoading
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
 	fetchNowPlaying: url => dispatch(fetchNowPlaying(url)),
 	fetchPopular: url => dispatch(fetchPopular(url))
 });

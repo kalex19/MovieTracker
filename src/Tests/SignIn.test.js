@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  shallow
-} from 'enzyme';
-import SignIn from '../Components/SignIn/SignIn';
+import {shallow} from 'enzyme';
+import {SignIn} from '../Components/SignIn/SignIn';
 
 
 describe('SignIn', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow( < SignIn / > );
+    wrapper = shallow( <SignIn /> );
   });
 
   it('should mock snapshot', () => {

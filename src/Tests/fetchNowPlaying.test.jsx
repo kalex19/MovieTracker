@@ -1,15 +1,6 @@
-import {
-  fetchNowPlaying
-} from '../Thunks/fetchNowPlaying'
-import {
-  fetchPopular
-} from '../Thunks/fetchPopular'
-import {
-  isLoading,
-  hasErrored,
-  getPopular,
-  getNowPlaying
-} from '../actions'
+import {fetchNowPlaying} from '../Thunks/fetchNowPlaying'
+import {fetchPopular} from '../Thunks/fetchPopular'
+import {isLoading,hasErrored,getPopular,getNowPlaying} from '../actions'
 
 jest.mock('../Thunks/fetchPopular.js')
 
@@ -18,9 +9,7 @@ describe('fetchNowPlaying', () => {
   let mockDispatch;
   let mockMovie;
   let thunk;
-
-
-
+  
   beforeEach(() => {
     thunk = fetchNowPlaying(mockUrl);
     mockUrl = 'someurl.com'
