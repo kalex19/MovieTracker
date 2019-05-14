@@ -1,6 +1,15 @@
-import {fetchNowPlaying} from '../Thunks/fetchNowPlaying'
-import {fetchPopular} from '../Thunks/fetchPopular'
-import {isLoading, hasErrored, getPopular, getNowPlaying} from '../actions'
+import {
+  fetchNowPlaying
+} from '../Thunks/fetchNowPlaying'
+import {
+  fetchPopular
+} from '../Thunks/fetchPopular'
+import {
+  isLoading,
+  hasErrored,
+  getPopular,
+  getNowPlaying
+} from '../actions'
 
 jest.mock('../Thunks/fetchPopular.js')
 
@@ -21,12 +30,13 @@ describe('fetchNowPlaying', () => {
       id: 299534,
       title: "Avengers: Endgame",
       poster_path: "/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
-      original_title: "Avengers: Endgame"}];
-      
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve({
-          nowPlaying: mockMovie
+      original_title: "Avengers: Endgame"
+    }];
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        nowPlaying: mockMovie
       })
     }))
   })
@@ -44,7 +54,7 @@ describe('fetchNowPlaying', () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: false,
       statusText: 'Something went wrong'
-   }))
+    }))
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(hasErrored('Something went wrong'))
   })
@@ -58,12 +68,12 @@ describe('fetchNowPlaying', () => {
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
   })
-  
+
   it('should dispatch getNowPlaying if response is ok', async () => {
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(getNowPlaying(mockMovie))
   })
-  
+
   it('should dispatch getPopular if response is ok', async () => {
     mockDispatch = jest.fn().mockImplementation(() => mockMovie)
     await thunk(mockDispatch)
