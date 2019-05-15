@@ -15,10 +15,7 @@ export class App extends Component {
 		super();
 		this.state = {
 			signedIn: false,
-			userName: '',
-			filteredBy: '',
-			favorites: [],
-			category: ''
+			favorites: []
 		};
 	}
 
@@ -66,9 +63,9 @@ export const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 App.propTypes = {
-	signedIn: PropTypes.bool,
-	userName: PropTypes.string,
-	filteredBy: PropTypes.string,
-	favorites: PropTypes.array,
-	category: PropTypes.string
+	fetchNowPlaying: PropTypes.func,
+	fetchPopular: PropTypes.func,
+	isLoading: PropTypes.bool,
+	nowPlaying: PropTypes.object,
+	popular: PropTypes.object
 };
