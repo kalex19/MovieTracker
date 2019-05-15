@@ -24,8 +24,6 @@ export class App extends Component {
 	}
 
 	render() {
-		console.log(this.props.isLoggedIn);
-
 		let display = this.props.isLoading ? (
 			<section>Loading...</section>
 		) : (
