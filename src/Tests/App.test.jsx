@@ -36,12 +36,14 @@ describe('App', () => {
 				popular: ['popular'],
 				nowPlaying: ['nowPlaying'],
 				isLoading: false,
+				isLoggedIn: false
 			}
 
 			const expected = {
 				popular: mockState.popular,
 				nowPlaying: mockState.nowPlaying,
-				isLoading: mockState.isLoading
+				isLoading: mockState.isLoading,
+				isLoggedIn: mockState.isLoggedIn
 			}
 
 			const mappedProps = mapStateToProps(mockState)

@@ -31,6 +31,7 @@ export const Controls = props => {
 			<Route exact path="/signOut" component={SignOut}/>
 			<Route exact path="/nowPlaying" component={() => <CardContainer category="nowPlaying" />} />
 			<Route exact path="/popular" component={() => <CardContainer category="popular" />} />
+			<Route path ="/favorites" component={() => <CardContainer category="favorites"/> } />
 			<Route exact path="/createAccount" component={CreateAccount} />
 			<Route
 				path="/popular/:id"

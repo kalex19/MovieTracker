@@ -28,10 +28,6 @@ export function Home(props){
 
 	return (
 		<div className="home">
-			<div className="helloMessage">
-				<h3>What will it be tonight?</h3>
-				<h4>Are you staying in or going out?</h4>
-			</div>
 			{displayNow}
 			{displayPop}
 		</div>

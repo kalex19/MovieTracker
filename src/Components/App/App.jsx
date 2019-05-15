@@ -25,15 +25,17 @@ export class App extends Component {
 	}
 
 	render() {
+	console.log(this.props.isLoggedIn)
+
 		let display = this.props.isLoading ? (
 			<section>Loading...</section>
 		) : (
 			<Controls signedIn={this.state.signedIn} favorites={this.state.favorites} />
 		);
+
 		let inNOut;
 	 inNOut = this.props.isLoggedIn ? (
 		 <NavLink to='/signOut' className="loginBtn">Sign Out</NavLink> 
-
 	 )
 	 :	(
 		 <NavLink to="/signIn" className="loginBtn">Sign In</NavLink>	 
@@ -56,10 +58,11 @@ export class App extends Component {
 	}
 }
 
-export const mapStateToProps = ({ popular, nowPlaying, isLoading }) => ({
+export const mapStateToProps = ({ popular, nowPlaying, isLoading, isLoggedIn }) => ({
 	popular,
 	nowPlaying,
-	isLoading
+	isLoading,
+	isLoggedIn
 });
 
 export const mapDispatchToProps = dispatch => ({
