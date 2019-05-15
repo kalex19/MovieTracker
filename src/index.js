@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './Components/App/App';
 import thunk from 'redux-thunk';
+import './index.scss'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 

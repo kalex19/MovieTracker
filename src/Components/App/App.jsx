@@ -6,7 +6,7 @@ import { fetchNowPlaying } from '../../Thunks/fetchNowPlaying';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import apiKey from '../../Util/ApiCalls/apiKey';
-import Styles from './App.scss';
+import  './App.scss';
 import PropTypes from 'prop-types';
 import Images from '../../images/popcorn.png';
 

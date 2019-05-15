@@ -24,5 +24,3 @@ Card.propTypes = {
 	image: PropTypes.string,
 	title: PropTypes.string
 };
-
-// return <Card id={movie.id} title={movie.title} image={movie.poster_path} />;
