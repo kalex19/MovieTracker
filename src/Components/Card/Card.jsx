@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Styles from './Card.scss';
 import PropTypes from 'prop-types';
 
-const Card = ({ title, image, id, type }) => {
+export const Card = ({ title, image, id, type }) => {
 	return (
 		<Link to={`/popular/${id} `} key={id} className="card">
 			<div className="card-wrapper">
