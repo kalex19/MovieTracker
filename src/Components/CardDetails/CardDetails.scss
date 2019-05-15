@@ -1,0 +1,30 @@
+.overview-wrapper {
+  display: flex;
+  flex-direction: column nowrap;
+  color:white;
+}
+
+.poster {
+  margin-left: 120px;
+  margin-top: 20px;
+}
+
+.details-wrapper {
+  font-size: 25px;
+  line-height: 1.6;
+  margin-left: 25px;
+}
+
+.poster-title {
+  text-align: center;
+}
+
+.back-btn {
+  font-size: 22px;
+  margin-left: 40px;
+  padding-top: 20px;
+}
+
+.overview {
+  margin-left: 30px;
+}
