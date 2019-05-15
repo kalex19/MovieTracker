@@ -76,7 +76,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### Create Account
 
-[![Screen-Shot-2019-05-15-at-7-58-29-AM.png](https://i.postimg.cc/43Qntxs7/Screen-Shot-2019-05-15-at-7-58-29-AM.png)](https://postimg.cc/Jyt1CmyM)
+[![create.png](https://i.postimg.cc/QdWfjRsn/create.png)](https://postimg.cc/rDM1JZDS)
 
 ### Issues
 * User should be able to favorite a card if signed in
