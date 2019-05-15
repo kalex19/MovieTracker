@@ -1,7 +1,7 @@
 .overview-wrapper {
   display: flex;
   flex-direction: column nowrap;
-  color:white;
+  color: white;
 }
 
 .poster {
@@ -27,4 +27,12 @@
 
 .overview {
   margin-left: 30px;
+}
+
+.rating {
+  padding: 2%;
+  width: 6%;
+  color: #FCB033;
+  border: 3px solid white;
+  border-radius: 50%;
 }
