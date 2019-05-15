@@ -5,10 +5,9 @@ import { fetchPopular } from '../../Thunks/fetchPopular';
 import { fetchNowPlaying } from '../../Thunks/fetchNowPlaying';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import {urlPopular, urlNowPLaying} from '../../Util/ApiCalls/urls'
-import  './App.scss';
+import { urlPopular, urlNowPLaying } from '../../Util/ApiCalls/urls';
+import './App.scss';
 import PropTypes from 'prop-types';
-import Images from '../../images/popcorn.png';
 
 export class App extends Component {
 	constructor() {
@@ -25,7 +24,7 @@ export class App extends Component {
 	}
 
 	render() {
-	console.log(this.props.isLoggedIn)
+		console.log(this.props.isLoggedIn);
 
 		let display = this.props.isLoading ? (
 			<section>Loading...</section>
@@ -34,22 +33,26 @@ export class App extends Component {
 		);
 
 		let inNOut;
-	 inNOut = this.props.isLoggedIn ? (
-		 <NavLink to='/signOut' className="loginBtn">Sign Out</NavLink> 
-	 )
-	 :	(
-		 <NavLink to="/signIn" className="loginBtn">Sign In</NavLink>	 
-	 )
+		inNOut = this.props.isLoggedIn ? (
+			<NavLink to="/signOut" className="loginBtn">
+				Sign Out
+			</NavLink>
+		) : (
+			<NavLink to="/signIn" className="loginBtn">
+				Sign In
+			</NavLink>
+		);
 
 		return (
 			<div className="App">
 				<div className="title">
 					<header>
-						<h1 className="siteTitle">
-							Movie<img src="../../images/popcorn.png" />Tracker
-						</h1>
+						<h1 className="siteTitle">Movie Tracker</h1>
 						<input type="text" className="searchInput" value="Search Movies...." />
-						{inNOut}
+						<div className="signIn">
+							<i class="fas fa-user" />
+							{inNOut}
+						</div>
 					</header>
 				</div>
 				{display}
