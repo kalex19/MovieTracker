@@ -60,28 +60,23 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### Home Page
 
-![alt text](src/images/HomePage.png "Home Page")
+[![one.png](https://i.postimg.cc/W3zYrtgX/one.png)](https://postimg.cc/phNBMW0F)
 
 ### In Theaters
 
-![alt text](src/images/Header.png "In Theaters")
+[![three.png](https://i.postimg.cc/XN8c3n5v/three.png)](https://postimg.cc/3WkDF5nM)
 
 ### Popular
 
-![alt text](src/images/Points.png "Popular")
+[![Screen-Shot-2019-05-15-at-7-58-29-AM.png](https://i.postimg.cc/43Qntxs7/Screen-Shot-2019-05-15-at-7-58-29-AM.png)](https://postimg.cc/Jyt1CmyM)
 
 ### Sign In
 
-![alt text](src/images/GameOver.png "Sign In")
-
+[![two.png](https://i.postimg.cc/KYzC79yP/two.png)](https://postimg.cc/9D6xCY00)
 
 ### Create Account
 
-![alt text](src/images/GameOver.png "Create Account")
-
-### Mobile View
-
-![alt text](src/images/MobileView.png "Mobile View")
+[![Screen-Shot-2019-05-15-at-7-58-29-AM.png](https://i.postimg.cc/43Qntxs7/Screen-Shot-2019-05-15-at-7-58-29-AM.png)](https://postimg.cc/Jyt1CmyM)
 
 ### Issues
 * User should be able to favorite a card if signed in
