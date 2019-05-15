@@ -4,8 +4,8 @@ import postUser from '../../Util/ApiCalls/postUser';
 import {urlCheckUser} from '../../Util/ApiCalls/urls'
 import {Redirect} from 'react-router'
 import { connect } from 'react-redux';
-import Card from '../Card/Card';
-import Styles from './SignIn.scss';
+import '../Card/Card';
+import './SignIn.scss';
 import PropTypes from 'prop-types';
 import {toggleLogIn} from '../../actions'
 
@@ -89,11 +89,11 @@ export class SignIn extends Component {
 	}
 }
 
-const mapStateToProps = ({isLoggedIn}) => ({
+export const mapStateToProps = ({isLoggedIn}) => ({
 	isLoggedIn
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
 	toggleLogIn: bool => dispatch(toggleLogIn(bool))
 })
 
