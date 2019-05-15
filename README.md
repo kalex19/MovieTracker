@@ -2,17 +2,23 @@
 
 ## Description
 
-
+The goal of this project was to create a movie tracker that pulls data from MovieDB API via fetch calls. The data rendered movie information on cards that could be favorited by the user. The engineers had the flexibility to choose the category and amount of data fetched along wiht the UI design as well.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
 ## Learning Goals
 
+* Create a website using Redux, Router, and Thunk
+* Fetch data from a large public database
+* Async testing
 
 ## Successes
 
+This project was first built in react and then converted to redux with router and thunk added in. This conversion was completed successfully. The UI was user tested and modifications were made based on user feedback. The fetch calls are successfully tested. 
 
 ## Challenges
+
+Understanding redux and honing the skills of catching minor errors unpon first glance, took some time to do, delaying the project schedule, leading to an unfinished project (see issues for upcoming features).
 
 
 ## Technologies Used
@@ -56,24 +62,33 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ![alt text](src/images/HomePage.png "Home Page")
 
-### Header
+### In Theaters
 
-![alt text](src/images/Header.png "Header")
+![alt text](src/images/Header.png "In Theaters")
 
-### Points
+### Popular
 
-![alt text](src/images/Points.png "Points")
+![alt text](src/images/Points.png "Popular")
 
-### Game Over
+### Sign In
 
-![alt text](src/images/GameOver.png "Game Over")
+![alt text](src/images/GameOver.png "Sign In")
+
+
+### Create Account
+
+![alt text](src/images/GameOver.png "Create Account")
 
 ### Mobile View
 
 ![alt text](src/images/MobileView.png "Mobile View")
 
 ### Issues
-
+* User should be able to favorite a card if signed in
+* User should be able to view favorites
+* User should be able to delete favorites
+* Favorites should be indicated on home page
+* Testing (shallow, async, fetchbcalls)
 
 ## Collaborators
 * Katie Lewis (https://github.com/kalex19)
