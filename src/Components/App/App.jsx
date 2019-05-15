@@ -5,7 +5,7 @@ import { fetchPopular } from '../../Thunks/fetchPopular';
 import { fetchNowPlaying } from '../../Thunks/fetchNowPlaying';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import apiKey from '../../Util/ApiCalls/apiKey';
+import {urlPopular, urlNowPLaying} from '../../Util/ApiCalls/urls'
 import  './App.scss';
 import PropTypes from 'prop-types';
 import Images from '../../images/popcorn.png';
@@ -20,9 +20,7 @@ export class App extends Component {
 	}
 
 	componentDidMount() {
-		const urlPopular = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
 		this.props.fetchPopular(urlPopular);
-		const urlNowPLaying = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
 		this.props.fetchNowPlaying(urlNowPLaying);
 	}
 
@@ -32,6 +30,14 @@ export class App extends Component {
 		) : (
 			<Controls signedIn={this.state.signedIn} favorites={this.state.favorites} />
 		);
+		let inNOut;
+	 inNOut = this.props.isLoggedIn ? (
+		 <NavLink to='/signOut' className="loginBtn">Sign Out</NavLink> 
+
+	 )
+	 :	(
+		 <NavLink to="/signIn" className="loginBtn">Sign In</NavLink>	 
+	 )
 
 		return (
 			<div className="App">
@@ -41,6 +47,7 @@ export class App extends Component {
 							Movie<img src="../../images/popcorn.png" />Tracker
 						</h1>
 						<input type="text" className="searchInput" value="Search Movies...." />
+						{inNOut}
 					</header>
 				</div>
 				{display}

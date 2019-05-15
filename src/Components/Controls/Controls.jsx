@@ -14,15 +14,7 @@ export const Controls = props => {
 	const popular = props.popular;
 	const nowPlaying = props.nowPlaying;
 
-	let inNOut;
-	 inNOut = props.isLoggedIn ? (
-		 <NavLink to='/signOut'>Sign Out</NavLink> 
-
-	 )
-	 :	(
-		 <NavLink to="/signIn">Sign In</NavLink>	 
-	 )
-
+	
 	return (
 		<section className="controls">
 			<div className="controlButtons">
@@ -32,7 +24,6 @@ export const Controls = props => {
 				<NavLink to="/popular" className="nav">
 					Popular
 				</NavLink>
-				{inNOut}
 				
 			</div>
 			<Route exact path="/" component={Home} />

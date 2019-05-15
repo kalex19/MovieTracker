@@ -20,11 +20,12 @@ input {
   padding: 10px;
   border: 3px solid black;
   background: #6B6D76;
-  opacity: .8;
+  opacity: .9;
   width: 500px;
   flex-direction: column;
   margin-top: 94px;
   color: white;
+  height: 300px;
 }
 
 .signInSubmit label {
@@ -35,6 +36,8 @@ input {
   height: 40px;
   width: 57%;
   font-size: 1em;
+  margin-bottom: 15px;
+
 }
 
 .submitAccountBtn {
@@ -48,6 +51,8 @@ input {
 
 .createAccountLink {
   margin-left: 120px;
+  margin-top: 20px;
+  font-size: 20px;
 }
 
 .createAccountLink:hover {
