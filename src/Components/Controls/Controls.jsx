@@ -6,15 +6,13 @@ import { connect } from 'react-redux';
 import SignIn from '../SignIn/SignIn';
 import SignOut from '../SignOut/SignOut';
 import CreateAccount from '../CreateAccount/CreateAccount';
-import CardDetails from '../CardDetails/CardDetails';
-import Styles from './Controls.scss';
+import {CardDetails} from '../CardDetails/CardDetails';
+import './Controls.scss';
 import PropTypes from 'prop-types';
 
 export const Controls = props => {
-	const popularProps = props.popular;
-	const nowPlayingProps = props.nowPlaying;
-	const popular = popularProps.popular;
-	const nowPlaying = nowPlayingProps.nowPlaying;
+	const popular = props.popular;
+	const nowPlaying = props.nowPlaying;
 
 	let inNOut;
 	 inNOut = props.isLoggedIn ? (
@@ -44,9 +42,8 @@ export const Controls = props => {
 			<Route exact path="/popular" component={() => <CardContainer category="popular" />} />
 			<Route exact path="/createAccount" component={CreateAccount} />
 			<Route
-				path="popular/:id"
+				path="/popular/:id"
 				render={({ match }) => {
-					console.log('matchid', match.params.id, 'match', match);
 					const { id } = match.params;
 					const card = popular.find(movie => movie.id === parseInt(id));
 					if (card) {

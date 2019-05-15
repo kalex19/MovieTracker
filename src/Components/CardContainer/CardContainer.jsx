@@ -1,24 +1,24 @@
 import React from 'react';
 import Card from '../Card/Card';
 import { connect } from 'react-redux';
-import Styles from './CardContainer.scss';
+import './CardContainer.scss';
 import PropTypes from 'prop-types';
 
 export const CardContainer = props => {
-	const nowPlaying = props.nowPlaying.nowPlaying;
-	const popular = props.popular.popular;
+	const nowPlaying = props.nowPlaying;
+	const popular = props.popular;
 
 	let display;
 
 	if (props.category === 'nowPlaying' && nowPlaying !== undefined) {
 		display = nowPlaying.map(movie => {
-			return <Card id={movie.id} title={movie.title} image={movie.poster_path} />;
+			return <Card id={movie.id} title={movie.title} image={movie.poster_path} type={movie.type}/>;
 		});
 	}
 
 	if (props.category === 'popular' && popular !== undefined) {
 		display = popular.map(movie => {
-			return <Card id={movie.id} title={movie.title} image={movie.poster_path} />;
+			return <Card id={movie.id} title={movie.title} image={movie.poster_path} type={movie.type} />;
 		});
 	}
 

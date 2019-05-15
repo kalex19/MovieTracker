@@ -1,19 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
-import Styles from './Home.scss';
+import './Home.scss';
 import PropTypes from 'prop-types';
 
 export function Home(props){
-	const popularProps = props.popular;
-	const nowPlayingProps = props.nowPlaying;
-	const popular = popularProps.popular;
-	const nowPlaying = nowPlayingProps.nowPlaying;
+	const popular = props.popular;
+	const nowPlaying = props.nowPlaying;
 
 	let displayNow;
 	let displayPop;
-
-	console.log('popular', popular, 'nowPlaying', nowPlaying);
 
 	if (props.isLoading) {
 		return <section>Loading...</section>;

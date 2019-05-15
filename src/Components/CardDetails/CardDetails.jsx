@@ -1,15 +1,16 @@
 import React from 'react';
 import './CardDetails.scss';
 import { Link } from 'react-router-dom';
-import Styles from './CardDetails.scss';
+import './CardDetails.scss';
 import PropTypes from 'prop-types';
 
-const CardDetails = ({id, title }) => {
-	const type = 'popular'
+export const CardDetails = ({id, title, type, poster_path }) => {
+	console.log('details imag',poster_path, "type", type)
 	return (
 		<div>
-			<Link to={`${type}/${id}`} className="back-btn"> ◀ back</Link>
+			<Link to={`/${type}`} className="back-btn"> ◀ back</Link>
 			<h1>{title}</h1>
+			<img src={'http://image.tmdb.org/t/p/w200' + poster_path} alt={`${title} Poster`}/>
 		</div>
 	);
 };
