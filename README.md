@@ -2,7 +2,7 @@
 
 ## Description
 
-The goal of this project was to create a movie tracker that pulls data from MovieDB API via fetch calls. The data rendered movie information on cards that could be favorited by the user. The engineers had the flexibility to choose the category and amount of data fetched along wiht the UI design as well.
+The goal of this project was to create a movie tracker that pulls data from MovieDB API via fetch calls. The data rendered movie information on cards that could be favorited by the user. The engineers had the flexibility to choose the category and amount of data fetched along with the UI design.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
